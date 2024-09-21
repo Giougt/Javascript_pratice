@@ -11,6 +11,8 @@ const input_meter = document.createElement("input");
 const input_min_alt = document.createElement("input");
 const input_max_alt = document.createElement("input");
 
+/* */ 
+
 /* button */
 const button_valid = document.createElement("button"); 
 button_valid.innerHTML= "Validate"; 
@@ -44,6 +46,8 @@ Object.assign(button_valid.style,{
     borderRadius: "10px"
 });
 
+
+/* get data in input*/ 
 
 
 /* append element in body */
