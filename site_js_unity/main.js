@@ -2,8 +2,9 @@
 
 const title_section_1 = document.createTextNode("Calcule du pourcentage moyen d'une pente sur une distance");
 const text_meter = document.createTextNode("Distance (m)"); 
-const min_alt =  document.createTextNode("Minimum altitude (m)")
-const max_alt = document.createTextNode("Maximum altitude (m) ")
+const min_alt =  document.createTextNode("Minimum altitude (m)");
+const max_alt = document.createTextNode("Maximum altitude (m) ");
+const result = document.createTextNode("Pourcentage moyen :");
 
 /* input  */
 
@@ -22,10 +23,17 @@ input_max_alt.id= "maxAltitude";
 const button_valid = document.createElement("button"); 
 button_valid.innerHTML= "Validate"; 
 
+/*  input_result */ 
+
+const input_result = document.createElement("input"); 
+input_result.hidden = "false";
+input_result.disabled = true;
+
 /* special element  */ 
 
 const br = document.createElement("br"); 
 const br1 = document.createElement("br"); 
+const br2 = document.createElement("br"); 
 
 /* create element in body */
 
@@ -33,6 +41,7 @@ const title1 = document.createElement("h1");
 const div1 = document.createElement("div");
 const div2 = document.createElement("div");
 const div3 = document.createElement("div");
+const div4 = document.createElement("div");
 
 /*  append const(text) in div*/
 
@@ -47,6 +56,9 @@ div2.appendChild(input_min_alt);
 div3.appendChild(max_alt);
 div3.appendChild(input_max_alt); 
 div3.appendChild(button_valid); 
+
+div4.appendChild(result);
+div4.appendChild(input_result);
 
 /* CSS part  */
 
@@ -69,6 +81,8 @@ document.body.appendChild(br);
 document.body.appendChild(div2); 
 document.body.appendChild(br1);
 document.body.appendChild(div3);
+document.body.appendChild(br2);
+document.body.appendChild(div4);
 
 /* get data in input*/ 
 
