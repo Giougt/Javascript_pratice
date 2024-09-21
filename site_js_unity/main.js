@@ -1,4 +1,3 @@
-
 /* enter data  */ 
 
 const text_meter = document.createTextNode("Distance (m)"); 
@@ -11,7 +10,11 @@ const input_meter = document.createElement("input");
 const input_min_alt = document.createElement("input");
 const input_max_alt = document.createElement("input");
 
-/* */ 
+/* add id to input field */ 
+
+input_meter.id = "distance"; 
+input_min_alt.id= "minAltitude";
+input_max_alt.id= "maxAltitude"; 
 
 /* button */
 const button_valid = document.createElement("button"); 
@@ -46,13 +49,15 @@ Object.assign(button_valid.style,{
     borderRadius: "10px"
 });
 
-
-/* get data in input*/ 
-
-
 /* append element in body */
 document.body.appendChild(div1); 
 document.body.appendChild(br);
 document.body.appendChild(div2); 
 document.body.appendChild(br1);
 document.body.appendChild(div3);
+
+/* get data in input*/ 
+
+let data_input_meter = document.getElementById("distance");
+let data_input_min_alt = document.getElementById("minAltitude");
+let data_input_max_alt = document.getElementById("maxAltitude");
