@@ -89,3 +89,15 @@ document.body.appendChild(div4);
 let data_input_meter = document.getElementById("distance");
 let data_input_min_alt = document.getElementById("minAltitude");
 let data_input_max_alt = document.getElementById("maxAltitude");
+
+/* use data from input */ 
+let gradient; 
+
+if (data_input_meter == 0) {
+    gradient = "Erreur"; 
+}else{
+    gradient = (data_input_max_alt - data_input_min_alt)*100/data_input_meter;
+}
+/* send resutl to input_result */ 
+
+/* show input_result */
