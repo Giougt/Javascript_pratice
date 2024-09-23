@@ -22,6 +22,8 @@ input_max_alt.id= "maxAltitude";
 
 const button_valid = document.createElement("button"); 
 button_valid.innerHTML= "Validate"; 
+button_valid.id = "button_send";
+const id_button = document.getElementById("button_send"); 
 
 /*  input_result */ 
 
@@ -98,6 +100,10 @@ if (data_input_meter == 0) {
 }else{
     gradient = (data_input_max_alt - data_input_min_alt)*100/data_input_meter;
 }
+
 /* send resutl to input_result */ 
 
-/* show input_result */
+input_result.value = gradient;
+
+/* show input_result when button click*/
+
