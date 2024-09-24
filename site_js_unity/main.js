@@ -66,13 +66,17 @@ div4.appendChild(input_result);
 
 Object.assign(button_valid.style,{
     width: "75px",
-    backgroundColor: "#6e766b", 
+    backgroundImage: "linear-gradient(to left, #FF0000, #FFFF00)",
     cursor : "pointer",
     borderRadius: "10px"
 });
 
 Object.assign(title1.style,{
-    textDecoration : "underline"
+    textDecoration : "underline",
+    background: "linear-gradient(to left, #FF0000, #FFFF00)",
+    WebkitBackgroundClip : "text",
+    WebkitTextFillColor : "transparent",
+    textAlign : "center"
 });
 
 /* append element in body */
