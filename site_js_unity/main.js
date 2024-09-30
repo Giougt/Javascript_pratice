@@ -23,12 +23,12 @@ input_max_alt.id= "maxAltitude";
 const button_valid = document.createElement("button"); 
 button_valid.innerHTML= "Validate"; 
 button_valid.id = "button_send";
-const id_button = document.getElementById("button_send"); 
+
 
 /*  input_result */ 
 
 const input_result = document.createElement("input"); 
-input_result.hidden = "false";
+input_result.hidden = true;
 input_result.disabled = true;
 
 /* special element  */ 
@@ -90,24 +90,22 @@ document.body.appendChild(div3);
 document.body.appendChild(br2);
 document.body.appendChild(div4);
 
-/* get data in input*/ 
+document.getElementById("button_send").addEventListener("click", function () {
+    // get data 
+    let data_input_meter = parseFloat(document.getElementById("distance").value);
+    let data_input_min_alt = parseFloat(document.getElementById("minAltitude").value);
+    let data_input_max_alt = parseFloat(document.getElementById("maxAltitude").value);
 
-let data_input_meter = document.getElementById("distance");
-let data_input_min_alt = document.getElementById("minAltitude");
-let data_input_max_alt = document.getElementById("maxAltitude");
+    // check value 
+    let gradient;
+    if (isNaN(data_input_meter) || isNaN(data_input_min_alt) || isNaN(data_input_max_alt) || data_input_meter === 0) {
+        gradient = "Erreur : valeurs invalides ou division par zéro";
+    } else {
+        gradient = ((data_input_max_alt - data_input_min_alt) * 100) / data_input_meter;
+    }
 
-/* use data from input */ 
-let gradient; 
-
-if (data_input_meter == 0) {
-    gradient = "Erreur"; 
-}else{
-    gradient = (data_input_max_alt - data_input_min_alt)*100/data_input_meter;
-}
-
-/* send resutl to input_result */ 
-
-input_result.value = gradient;
-
-/* show input_result when button click*/
-
+    // show input result 
+    input_result.value = gradient;
+    input_result.hidden = false; 
+    input_result.disabled = false; 
+});
