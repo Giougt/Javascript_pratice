@@ -24,12 +24,18 @@ const button_valid = document.createElement("button");
 button_valid.innerHTML= "Validate"; 
 button_valid.id = "button_send";
 
+// button reset 
+
+const button_reset = document.createElement("button"); 
+button_reset.innerHTML= "Reset";
+button_reset.id = "reset"; 
 
 /*  input_result */ 
 
 const input_result = document.createElement("input"); 
 input_result.hidden = true;
 input_result.disabled = true;
+input_result.id = "resultat"; 
 
 /* special element  */ 
 
@@ -58,6 +64,7 @@ div2.appendChild(input_min_alt);
 div3.appendChild(max_alt);
 div3.appendChild(input_max_alt); 
 div3.appendChild(button_valid); 
+div3.appendChild(button_reset); 
 
 div4.appendChild(result);
 div4.appendChild(input_result);
@@ -90,6 +97,7 @@ document.body.appendChild(div3);
 document.body.appendChild(br2);
 document.body.appendChild(div4);
 
+// function calculate result and show result 
 document.getElementById("button_send").addEventListener("click", function () {
     // get data 
     let data_input_meter = parseFloat(document.getElementById("distance").value);
@@ -103,12 +111,18 @@ document.getElementById("button_send").addEventListener("click", function () {
     } else {
         gradient = ((data_input_max_alt - data_input_min_alt) * 100) / data_input_meter;
     }
-    if (gradient !== null && gradient !== undefined && gradient !== '') {
-        input_result.value = gradient;
-        input_result.hidden = false; 
-        input_result.disabled = false; 
-    } else {
-        input_result.hidden = true;
-        input_result.disabled = true;
-    }
+
+    // show input result 
+    input_result.value = gradient;
+    input_result.hidden = false; 
+    input_result.disabled = false; 
+});
+
+// function reset input field 
+
+document.getElementById("reset").addEventListener("click",function () {
+    document.getElementById("distance").value=""; 
+    document.getElementById("minAltitude").value=""; 
+    document.getElementById("maxAltitude").value=""; 
+    document.getElementById("resultat").value=""; 
 });
