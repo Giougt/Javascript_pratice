@@ -103,9 +103,12 @@ document.getElementById("button_send").addEventListener("click", function () {
     } else {
         gradient = ((data_input_max_alt - data_input_min_alt) * 100) / data_input_meter;
     }
-
-    // show input result 
-    input_result.value = gradient;
-    input_result.hidden = false; 
-    input_result.disabled = false; 
+    if (gradient !== null && gradient !== undefined && gradient !== '') {
+        input_result.value = gradient;
+        input_result.hidden = false; 
+        input_result.disabled = false; 
+    } else {
+        input_result.hidden = true;
+        input_result.disabled = true;
+    }
 });
