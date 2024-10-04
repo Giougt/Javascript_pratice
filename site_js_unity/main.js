@@ -11,12 +11,14 @@ const result = document.createTextNode("Pourcentage moyen :");
 const input_meter = document.createElement("input");
 const input_min_alt = document.createElement("input");
 const input_max_alt = document.createElement("input");
+const date = document.createElement("input");
 
 /* add id to input field */ 
 
 input_meter.id = "distance"; 
 input_min_alt.id= "minAltitude";
 input_max_alt.id= "maxAltitude"; 
+date.id = "date_data"; 
 
 /* button */
 
@@ -54,6 +56,7 @@ const div4 = document.createElement("div");
 /*  append const(text) in div*/
 
 title1.appendChild(title_section_1);
+title1.appendChild(date);
 
 div1.appendChild(text_meter);
 div1.appendChild(input_meter); 
@@ -75,7 +78,16 @@ Object.assign(button_valid.style,{
     width: "75px",
     backgroundImage: "linear-gradient(to left, #FF0000, #FFFF00)",
     cursor : "pointer",
-    borderRadius: "10px"
+    borderRadius: "10px",
+    marginLeft: "10px"
+});
+
+Object.assign(button_reset.style,{
+    width: "75px",
+    backgroundImage: "linear-gradient(to left, #FF0000, #FFFF00)",
+    cursor : "pointer",
+    borderRadius: "10px",
+    marginLeft: "10px"
 });
 
 Object.assign(title1.style,{
@@ -83,9 +95,14 @@ Object.assign(title1.style,{
     background: "linear-gradient(to left, #FF0000, #FFFF00)",
     WebkitBackgroundClip : "text",
     WebkitTextFillColor : "transparent",
-    textAlign : "center"
+    textAlign : "center",
+    marginLeft: "260px"
 });
 
+Object.assign(date.style,{
+    marginLeft: "260px",
+    maxWidth: "fit-content"
+});
 /* append element in body */
 
 document.body.appendChild(title1);
