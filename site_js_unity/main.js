@@ -6,19 +6,27 @@ const min_alt =  document.createTextNode("Minimum altitude (m)");
 const max_alt = document.createTextNode("Maximum altitude (m) ");
 const result = document.createTextNode("Pourcentage moyen :");
 
+// create time field 
+
+const date = document.createElement("input");
+date.type="text"; 
+const date_data = new Date(); 
+let hours = date_data.getHours();
+let minutes = date_data.getMinutes();
+const hoursactually = hours + ':' + minutes 
+date.value=hoursactually;
+
 /* input  */
 
 const input_meter = document.createElement("input");
 const input_min_alt = document.createElement("input");
 const input_max_alt = document.createElement("input");
-const date = document.createElement("input");
 
 /* add id to input field */ 
 
 input_meter.id = "distance"; 
 input_min_alt.id= "minAltitude";
 input_max_alt.id= "maxAltitude"; 
-date.id = "date_data"; 
 
 /* button */
 
@@ -94,14 +102,13 @@ Object.assign(title1.style,{
     textDecoration : "underline",
     background: "linear-gradient(to left, #FF0000, #FFFF00)",
     WebkitBackgroundClip : "text",
-    WebkitTextFillColor : "transparent",
     textAlign : "center",
     marginLeft: "260px"
 });
 
 Object.assign(date.style,{
     marginLeft: "260px",
-    maxWidth: "fit-content"
+    pointerEvents: "none"
 });
 /* append element in body */
 
