@@ -1,10 +1,18 @@
+// create element link 
+
+const style_text = document.createElement("link");
+style_text.rel = 'stylesheet';
+style_text.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"';
+document.head.appendChild(style_text);
+
 /* enter data  */ 
 
 const title_section_1 = document.createTextNode("Calcule du pourcentage moyen d'une pente sur une distance");
-const text_meter = document.createTextNode("Distance (m)"); 
-const min_alt =  document.createTextNode("Minimum altitude (m)");
+const text_meter = document.createTextNode("Distance (m) "); 
+const min_alt =  document.createTextNode("Minimum altitude (m) ");
 const max_alt = document.createTextNode("Maximum altitude (m) ");
-const result = document.createTextNode("Pourcentage moyen :");
+const result = document.createTextNode("Pourcentage moyen : ");
+const bingo_text = document.createTextNode("Tape un nombre entre 1 et 20 ");
 
 // create time field 
 
@@ -37,6 +45,7 @@ date.value=hoursactually;
 const input_meter = document.createElement("input");
 const input_min_alt = document.createElement("input");
 const input_max_alt = document.createElement("input");
+const input_bingo = document.createElement("input"); 
 
 /* add id to input field */ 
 
@@ -76,6 +85,7 @@ const div1 = document.createElement("div");
 const div2 = document.createElement("div");
 const div3 = document.createElement("div");
 const div4 = document.createElement("div");
+const div5 = document.createElement("div"); 
 
 /*  append const(text) in div*/
 
@@ -95,6 +105,9 @@ div3.appendChild(button_reset);
 
 div4.appendChild(result);
 div4.appendChild(input_result);
+
+div5.appendChild(bingo_text); 
+div5.appendChild(input_bingo); 
 
 /* CSS part  */
 
@@ -127,6 +140,12 @@ Object.assign(date.style,{
     color: "white",
     textAlign: "center"
 });
+
+Object.assign(div5.style,{
+    paddingTop: "100px",
+    textAlign: "center",
+    fontFamily: "Montserrat , sans-serif"
+});
 /* append element in body */
 
 document.body.appendChild(title1);
@@ -137,6 +156,7 @@ document.body.appendChild(br1);
 document.body.appendChild(div3);
 document.body.appendChild(br2);
 document.body.appendChild(div4);
+document.body.appendChild(div5); 
 
 // function calculate result and show result 
 document.getElementById("button_send").addEventListener("click", function () {
