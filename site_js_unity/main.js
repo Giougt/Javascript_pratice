@@ -13,7 +13,23 @@ date.type="text";
 const date_data = new Date(); 
 let hours = date_data.getHours();
 let minutes = date_data.getMinutes();
-const hoursactually = hours + ':' + minutes 
+let seconds = date_data.getSeconds();
+
+// conditions print time 
+
+if (hours <10) {
+    hours = "0"+ hours; 
+}
+if (minutes < 10) {
+    minutes = "0" + minutes;
+}
+if (seconds < 10) {
+    seconds = "0" + seconds;
+}
+
+// return time actual 
+
+const hoursactually = hours + 'h' + minutes + 'm' + seconds + 's'; 
 date.value=hoursactually;
 
 /* input  */
@@ -100,15 +116,16 @@ Object.assign(button_reset.style,{
 
 Object.assign(title1.style,{
     textDecoration : "underline",
-    background: "linear-gradient(to left, #FF0000, #FFFF00)",
-    WebkitBackgroundClip : "text",
     textAlign : "center",
     marginLeft: "260px"
 });
 
 Object.assign(date.style,{
     marginLeft: "260px",
-    pointerEvents: "none"
+    pointerEvents: "none",
+    background: "linear-gradient(90deg, rgba(5,0,36,1) 0%, rgba(77,9,125,1) 34%, rgba(90,9,121,1) 67%, rgba(255,0,215,1) 100%)",
+    color: "white",
+    textAlign: "center"
 });
 /* append element in body */
 
