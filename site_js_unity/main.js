@@ -52,6 +52,7 @@ const input_bingo = document.createElement("input");
 input_meter.id = "distance"; 
 input_min_alt.id= "minAltitude";
 input_max_alt.id= "maxAltitude"; 
+input_bingo.id = "bingo_field";
 
 /* button */
 
@@ -146,6 +147,11 @@ Object.assign(div5.style,{
     textAlign: "center",
     fontFamily: "Montserrat , sans-serif"
 });
+
+Object.assign(input_bingo.style,{
+    textAlign: "center"
+})
+
 /* append element in body */
 
 document.body.appendChild(title1);
@@ -187,3 +193,20 @@ document.getElementById("reset").addEventListener("click",function () {
     document.getElementById("maxAltitude").value=""; 
     document.getElementById("resultat").value=""; 
 });
+
+//function bingo game 
+
+input_bingo.addEventListener('keydown', bingo_game);
+
+function bingo_game(event) {
+    if (event.key === "Enter") {
+        let correct_answer = Math.floor(Math.random() * 21); 
+        let user_answer = parseInt(input_bingo.value, 10); 
+        document.getElementById("bingo_field").value="";
+        if (user_answer === correct_answer) {
+            alert("bien  joué");
+        }else{
+            alert("dommage"); 
+        }
+    }
+}
