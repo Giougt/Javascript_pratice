@@ -79,6 +79,20 @@ const br = document.createElement("br");
 const br1 = document.createElement("br"); 
 const br2 = document.createElement("br"); 
 
+// create block for answer_number bingo 
+
+const block1 = document.createElement("div"); 
+const block2 = document.createElement("div"); 
+const block3 = document.createElement("div"); 
+const block4 = document.createElement("div"); 
+const block5 = document.createElement("div"); 
+
+block1.id = "small_cube1";
+block2.id = "small_cube";
+block3.id = "small_cube";
+block4.id = "small_cube";
+block5.id = "small_cube";
+
 /* create element in body */
 
 const title1 = document.createElement("h1");
@@ -87,6 +101,7 @@ const div2 = document.createElement("div");
 const div3 = document.createElement("div");
 const div4 = document.createElement("div");
 const div5 = document.createElement("div"); 
+const div6 = document.createElement("div"); 
 
 /*  append const(text) in div*/
 
@@ -109,6 +124,15 @@ div4.appendChild(input_result);
 
 div5.appendChild(bingo_text); 
 div5.appendChild(input_bingo); 
+div5.appendChild(div6); 
+
+// div6 in div5
+
+div6.appendChild(block1); 
+div6.appendChild(block2); 
+div6.appendChild(block3); 
+div6.appendChild(block4); 
+div6.appendChild(block5); 
 
 /* CSS part  */
 
@@ -145,12 +169,63 @@ Object.assign(date.style,{
 Object.assign(div5.style,{
     paddingTop: "100px",
     textAlign: "center",
-    fontFamily: "Montserrat , sans-serif"
+    fontFamily: "Montserrat , sans-serif",
+    
 });
 
 Object.assign(input_bingo.style,{
     textAlign: "center"
+});
+
+Object.assign(div6.style,{
+    display: "inline-block",
+    marginLeft: "20px",
+    
 })
+
+// start block response 
+
+Object.assign(block1.style,{
+    width: "13px",
+    height: "13px",
+    backgroundColor: "red",
+    display: "inline-block",
+    marginRight: "5px"
+})
+
+Object.assign(block2.style,{
+    width: "13px",
+    height: "13px",
+    backgroundColor: "red",
+    display: "inline-block",
+    marginRight: "5px"
+})
+
+Object.assign(block3.style,{
+    width: "13px",
+    height: "13px",
+    backgroundColor: "red",
+    display: "inline-block",
+    marginRight: "5px"
+})
+
+Object.assign(block4.style,{
+    width: "13px",
+    height: "13px",
+    backgroundColor: "red",
+    display: "inline-block",
+    marginRight: "5px"
+})
+
+Object.assign(block5.style,{
+    width: "13px",
+    height: "13px",
+    backgroundColor: "red",
+    display: "inline-block",
+    marginRight: "5px"
+})
+
+//end block response 
 
 /* append element in body */
 
@@ -199,14 +274,15 @@ document.getElementById("reset").addEventListener("click",function () {
 input_bingo.addEventListener('keydown', bingo_game);
 
 function bingo_game(event) {
+    let correct_answer = Math.floor(Math.random() * 21); 
     if (event.key === "Enter") {
-        let correct_answer = Math.floor(Math.random() * 21); 
         let user_answer = parseInt(input_bingo.value, 10); 
         document.getElementById("bingo_field").value="";
         if (user_answer === correct_answer) {
             alert("bien  joué");
         }else{
             alert("dommage"); 
+            document.getElementById("small_cube1").style.backgroundColor="blue"; 
         }
     }
 }
