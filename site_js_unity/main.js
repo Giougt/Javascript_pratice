@@ -266,7 +266,9 @@ document.getElementById("reset").addEventListener("click",function () {
     document.getElementById("distance").value=""; 
     document.getElementById("minAltitude").value=""; 
     document.getElementById("maxAltitude").value=""; 
-    document.getElementById("resultat").value=""; 
+    document.getElementById("resultat").value="";
+    input_result.hidden = true;
+    input_result.disabled = true; 
 });
 
 //function bingo game 
