@@ -286,3 +286,17 @@ function bingo_game(event) {
         }
     }
 }
+
+// responsive 
+const mediaQuery = window.matchMedia("(min-width: 1000px)");
+mediaQuery.addEventListener('change', changeBack);
+
+function changeBack(){
+    if (mediaQuery.matches) {
+        document.body.style.backgroundColor = "#ff0000";
+    } else {
+        document.body.style.backgroundColor = ""; 
+    }
+};
+
+changeBack();
