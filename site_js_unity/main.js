@@ -189,41 +189,46 @@ Object.assign(div6.style,{
 Object.assign(block1.style,{
     width: "13px",
     height: "13px",
-    backgroundColor: "red",
+    backgroundColor: "",
     display: "inline-block",
-    marginRight: "5px"
+    marginRight: "5px",
+    border: "2px solid black" 
 })
 
 Object.assign(block2.style,{
     width: "13px",
     height: "13px",
-    backgroundColor: "red",
+    backgroundColor: "",
     display: "inline-block",
-    marginRight: "5px"
+    marginRight: "5px",
+    border: "2px solid black" 
 })
 
 Object.assign(block3.style,{
     width: "13px",
     height: "13px",
-    backgroundColor: "red",
+    backgroundColor: "",
     display: "inline-block",
-    marginRight: "5px"
+    marginRight: "5px",
+    border: "2px solid black" 
 })
 
 Object.assign(block4.style,{
     width: "13px",
     height: "13px",
-    backgroundColor: "red",
+    backgroundColor: "",
     display: "inline-block",
-    marginRight: "5px"
+    marginRight: "5px",
+    border: "2px solid black" 
 })
 
 Object.assign(block5.style,{
     width: "13px",
     height: "13px",
-    backgroundColor: "red",
+    backgroundColor: "",
     display: "inline-block",
-    marginRight: "5px"
+    marginRight: "5px",
+    border: "2px solid black" 
 })
 
 //end block response 
@@ -298,18 +303,19 @@ function bingo_game(event) {
 
 //color block 
 function colorize_cube(nb_cube,state ) {
-    let colorValue = ""; 
-    if (state === "allfail"){
-        colorValue = "white"; 
-    }
     if (state === "miss"){
-        colorValue = "blue"; 
+        var colorValue = "blue"; 
+    }
+    if (state === "allfail"){
+        document.getElementById("bingo_field").value="PERDU";
+        //colorValue = "white";
     }
         let str_nb_cube = nb_cube.toString(); 
         for (let index = 0; index < nb_cube; index++) {
             let cube_target ="small_cube"+ str_nb_cube;
             document.getElementById(cube_target).style.backgroundColor= colorValue; 
         }
+    
 }
 
 // test responsive 
