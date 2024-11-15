@@ -71,6 +71,7 @@ button_reset.id = "reset";
 const input_result = document.createElement("input"); 
 input_result.hidden = true;
 input_result.disabled = true;
+input_result.readOnly = true; 
 input_result.id = "resultat"; 
 
 /* special element  */ 
@@ -88,10 +89,10 @@ const block4 = document.createElement("div");
 const block5 = document.createElement("div"); 
 
 block1.id = "small_cube1";
-block2.id = "small_cube";
-block3.id = "small_cube";
-block4.id = "small_cube";
-block5.id = "small_cube";
+block2.id = "small_cube2";
+block3.id = "small_cube3";
+block4.id = "small_cube4";
+block5.id = "small_cube5";
 
 /* create element in body */
 
@@ -274,6 +275,7 @@ document.getElementById("reset").addEventListener("click",function () {
 //function bingo game 
 
 input_bingo.addEventListener('keydown', bingo_game);
+let count = 0; 
 
 function bingo_game(event) {
     let correct_answer = Math.floor(Math.random() * 21); 
@@ -284,13 +286,34 @@ function bingo_game(event) {
             alert("bien  joué");
         }else{
             alert("dommage"); 
-            document.getElementById("small_cube1").style.backgroundColor="blue"; 
+            count = count + 1;  
+            colorize_cube(count,"miss"); 
         }
+    if (count === 5){
+        colorize_cube(count,"allfail");
     }
+    }
+    console.log("count",count); 
 }
 
-// responsive 
-const mediaQuery = window.matchMedia("(min-width: 1000px)");
+//color block 
+function colorize_cube(nb_cube,state ) {
+    let colorValue = ""; 
+    if (state === "allfail"){
+        colorValue = "white"; 
+    }
+    if (state === "miss"){
+        colorValue = "blue"; 
+    }
+        let str_nb_cube = nb_cube.toString(); 
+        for (let index = 0; index < nb_cube; index++) {
+            let cube_target ="small_cube"+ str_nb_cube;
+            document.getElementById(cube_target).style.backgroundColor= colorValue; 
+        }
+}
+
+// test responsive 
+const mediaQuery = window.matchMedia("(min-width: 1100px)");
 mediaQuery.addEventListener('change', changeBack);
 
 function changeBack(){
