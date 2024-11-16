@@ -60,7 +60,7 @@ const button_valid = document.createElement("button");
 button_valid.innerHTML= "Validate"; 
 button_valid.id = "button_send";
 
-// button reset 
+// button reset distance_elevation_alt
 
 const button_reset = document.createElement("button"); 
 button_reset.innerHTML= "Reset";
@@ -79,6 +79,12 @@ input_result.id = "resultat";
 const br = document.createElement("br"); 
 const br1 = document.createElement("br"); 
 const br2 = document.createElement("br"); 
+
+// button reset bingo score 
+
+const button_reset_bingo = document.createElement("button");
+button_reset_bingo.innerHTML = "re-try";
+button_reset_bingo.id = "reset_button_bingo";
 
 // create block for answer_number bingo 
 
@@ -124,7 +130,8 @@ div4.appendChild(result);
 div4.appendChild(input_result);
 
 div5.appendChild(bingo_text); 
-div5.appendChild(input_bingo); 
+div5.appendChild(input_bingo);
+div5.appendChild(button_reset_bingo); 
 div5.appendChild(div6); 
 
 // div6 in div5
@@ -183,6 +190,11 @@ Object.assign(div6.style,{
     marginLeft: "20px",
     
 })
+
+Object.assign(button_reset_bingo.style,{
+    width: "75px",
+    backgroundColor: "#2ecc71"
+});
 
 // start block response 
 
@@ -317,6 +329,15 @@ function colorize_cube(nb_cube,state ) {
         }
     
 }
+
+document.getElementById("reset_button_bingo").addEventListener("click",function (){
+    for (let index = 1; index < 6; index++) {
+        let cube_target ="small_cube"+ index.toString();
+        console.log(cube_target);
+        document.getElementById(cube_target).style.backgroundColor= "white"; 
+    }
+    count = 0; 
+});
 
 // test responsive 
 const mediaQuery = window.matchMedia("(min-width: 1100px)");
